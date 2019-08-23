@@ -50,7 +50,15 @@ services:
     depends_on:
       - elasticsearch
 
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:$ELK_VERSION
+    command: filebeat -e -strict.perms=false -E setup.kibana.host=kibana:5601 -E output.elasticsearch.hosts=["elasticsearch:9200"]
+    volumes:
+      - ./filebeat/filebeat.docker.yml:/usr/share/filebeat/filebeat.yml:ro
+      - $LOG_FILE:/var/log/catalina.log:ro
+    networks:
+      - elk
+    
 networks:
-
   elk:
     driver: bridge

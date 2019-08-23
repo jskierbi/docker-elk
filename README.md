@@ -1,3 +1,17 @@
+# Quick startup guide
+
+```bash
+export ELK_VERSION=7.3.0
+export LOG_FILE=/full/path/to/log/file/catalina.out
+
+docker-compose build
+docker-compose up -d
+```
+
+* URL: http://localhost:5601
+* User: elastic
+* Pass: changeme
+
 # Elastic stack (ELK) on Docker
 
 [![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
